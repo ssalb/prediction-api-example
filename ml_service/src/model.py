@@ -1,6 +1,8 @@
+import pickle
+from sklearn.svm import SVC
+
 class PreTrainedModel:
     def __init__(self):
-        # Modify this as required. E.g. you don't need to build sklearn models
         self.built = False
         self.loaded = False
         self.model = None
@@ -8,23 +10,25 @@ class PreTrainedModel:
         self._load()
 
     def _build(self):
-        # once built, make self.built = True
-        pass
+        # Nothing to build in this example
+        self.built = True
 
     def _load(self):
-        # if not self.built:
-        #     raise RuntimeError("Model is not built.")
-        pass
+        if not self.built:
+            raise RuntimeError("Model is not built.")
+        
+        with open(f"model/my-model.pkl", "rb") as f:
+            self.model = pickle.load(f)
+        self.loaded = True
 
     def preprocess(self, input_x):
-        # Preproces/Augment data before prediciton
-        pass
+        # Nothing to do in this example
+        return input_x
 
     def predict(self, input_X):
-        # if not self.built:
-        #     raise RuntimeError("Model is not built.")
-        # if not self.loaded:
-        #     raise RuntimeError("Model is not loaded.")
-        # preds = self.model.predict(input_X)
-        # return preds
-        pass
+        if not self.built:
+            raise RuntimeError("Model is not built.")
+        if not self.loaded:
+            raise RuntimeError("Model is not loaded.")
+        preds = self.model.predict(input_X)
+        return preds

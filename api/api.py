@@ -1,8 +1,8 @@
 import config
+import json
 import redis
 import uuid
 import time
-import json
 from flask import Flask, jsonify, request
 from flask import abort, make_response
 
@@ -36,6 +36,7 @@ def predict():
     # If required, preprocess data here
     # then pack everything into input_x
     #
+    input_x = request.json["payload"]
     ####################################################
 
     k = str(uuid.uuid4())

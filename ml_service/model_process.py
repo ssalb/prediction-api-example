@@ -21,7 +21,7 @@ if __name__ == "__main__":
             input_x = q["input"]
 
             if batch is None:
-                batch = input_x
+                batch = [input_x]
             else:
                 batch = np.vstack([batch, input_x])
 
@@ -34,8 +34,8 @@ if __name__ == "__main__":
             ####################################################
 
             preds = model.predict(proc_batch)
-            for (q_id, result) in zip(q_ids, results):
-                output = {"prediction": result}
+            for (q_id, pred) in zip(q_ids, preds):
+                output = {"prediction": int(pred)}
                 #########################################
                 #
                 # If required, add other metadata to output here.
