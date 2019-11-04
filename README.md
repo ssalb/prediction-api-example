@@ -13,7 +13,7 @@ In this way, clients connect to the `nginx` instance, which acts as a proxy and 
 
 ## How to use
 
-In the [notebooks](../tree/master/notebooks) you can find two jupyter notebooks: `train-my-model.ipynb` and `test-api.ipynb`. The first one trains a Support Vector Classifier (SVC) using the [Iris Dataset](https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html) from scikit-learn and stores the model under `ml_service/model/my-model.pkl`. This model is then used by `ml_service` to make predictions.
+In the [notebooks](../master/notebooks) you can find two jupyter notebooks: `train-my-model.ipynb` and `test-api.ipynb`. The first one trains a Support Vector Classifier (SVC) using the [Iris Dataset](https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html) from scikit-learn and stores the model under `ml_service/model/my-model.pkl`. This model is then used by `ml_service` to make predictions.
 
 After this model is trained, and assuming you have docker-compose installed (look here if you don't: https://docs.docker.com/compose/install/) simply run:
 
